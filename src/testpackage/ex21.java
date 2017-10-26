@@ -13,6 +13,7 @@ import java.util.*;
 public class ex21 {
         public static void main(String[] args) {
             final int numOfPasswords=4;
+            PasswordValidator pv=new PasswordValidator();
             Scanner scan = new Scanner(System.in);
             String[] passwordCandidates=new String[numOfPasswords];
             String pattern = "(?=.*[A-Z])(?=.*[0-9])(?=.*[@#_-])(?=\\S+$).{4,32}";
@@ -21,14 +22,14 @@ public class ex21 {
             }
 
             for (int i=0;i<numOfPasswords;i++){
-                System.out.println(passwordCandidates[i].matches(pattern)?"PASS":"FAIL");
+                System.out.println(pv.checkPassword(passwordCandidates[i]));
             }
 
         }
         public static class PasswordValidator {
             static final String pattern = "(?=.*[A-Z])(?=.*[0-9])(?=.*[@#_-])(?=\\S+$).{4,32}";
-            public boolean checkPassword(String passwordCandidate) {
-                return passwordCandidate.matches(pattern);
+            public String checkPassword(String passwordCandidate) {
+                return (passwordCandidate.matches(pattern)?"PASS":"FAIL");
             }
             public synchronized String checkPasswordSynchronized (String passwordCandidate) {
                 return passwordCandidate.matches(pattern)?"PASS":"FAIL";
