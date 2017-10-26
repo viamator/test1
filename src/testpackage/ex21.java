@@ -16,7 +16,7 @@ public class ex21 {
             PasswordValidator pv=new PasswordValidator();
             Scanner scan = new Scanner(System.in);
             String[] passwordCandidates=new String[numOfPasswords];
-            String pattern = "(?=.*[A-Z])(?=.*[0-9])(?=.*[@#_-])(?=\\S+$).{4,32}";
+
             for (int i=0;i<numOfPasswords;i++){
                 passwordCandidates[i]=scan.nextLine().trim();
             }
